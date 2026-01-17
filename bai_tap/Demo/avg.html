@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<table>
+  <tr>
+    <td><label for="math">Nhập điểm toán</label></td>
+    <td><input type="number" id="math"></td>
+  </tr>
+  <tr>
+    <td><label for="physical">Nhập điểm lý</label></td>
+    <td><input type="number" id="physical"></td>
+  </tr>
+  <tr>
+    <td><label for="chemistry">Nhập điểm hoá</label></td>
+    <td><input type="number" id="chemistry"></td>
+  </tr>
+
+</table>
+  <button id="btn-avg">Tính điểm trrung bình</button>
+
+<script>
+  document.getElementById('btn-avg').addEventListener('click', function () {
+    let math = +document.getElementById("math").value;
+    let physical = +document.getElementById("physical").value;
+    let chemistry = +document.getElementById("chemistry").value;
+    avg = (math + physical + chemistry)/3;
+    alert(avg)
+  })
+</script>
+</body>
+</html>

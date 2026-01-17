@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--//Inline-->
+  <button style="background-color: white" onclick="this.style.backgroundColor='blue'; this.style.color='white';">
+    Like</button>
+<!--//Internal-->
+  <button id="btn-like1" style="background-color: white">Like</button>
+<script>
+  document.getElementById("btn-like1").addEventListener("click", function() {
+    this.style.backgroundColor = "blue";
+    this.style.color = "white";
+  })
+</script>
+
+<!--External-->
+  <button id="btn-like2" style="background-color: white">Like</button>
+<script src="vd_javascipt.js"></script>
+</body>
+</html>
