@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+</head>
+<body>
+<form>
+  <h1>Calculator</h1>
+  <input type="number" id="a">
+  <input type="number" id="b"> <br> <br>
+
+  <button type="button" id="cong">Cộng</button>
+  <button type="button" id="tru">Trừ</button>
+  <button type="button" id="nhan">Nhân</button>
+  <button type="button" id="chia">Chia</button> <br> <br>
+
+  <label id="ketqua">Kết quả:</label>
+</form>
+
+<script>
+  document.getElementById('cong').addEventListener('click', function() { tinh('cong'); });
+  document.getElementById('tru').addEventListener('click', function() { tinh('tru'); });
+  document.getElementById('nhan').addEventListener('click', function() { tinh('nhan'); });
+  document.getElementById('chia').addEventListener('click', function() { tinh('chia'); });
+  function tinh(phepToan) {
+    let a = +document.getElementById("a").value;
+    let b = +document.getElementById("b").value;
+    let kq = 0;
+
+    if (phepToan === 'cong') kq = a + b;
+    if (phepToan === 'tru')  kq = a - b;
+    if (phepToan === 'nhan') kq = a * b;
+    if (phepToan === 'chia') {
+      if (b !== 0) {
+        kq = a / b;
+      } else {
+        kq = "Không thể chia cho 0";
+      }
+    }
+    document.getElementById("ketqua").innerText = "Kết quả: " + kq;
+  }
+
+</script>
+</body>
+</html>

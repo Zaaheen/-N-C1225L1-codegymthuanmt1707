@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    td{
+      text-align: center;
+      width: 150px;
+      font: bold 14px/1.5 arial;
+    }
+    table{
+      border-collapse: collapse;
+    }
+    select{
+      width: 100%;
+    }
+    button{
+      background-color: #b07ed8;
+      color: white;
+      font-weight: bold;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<form>
+  <table>
+    <tr>
+      <td>
+        <label id="soTien">Amount</label>
+      </td>
+      <td>
+        <label>From Currency</label>
+      </td>
+      <td>
+        <label>To Currency</label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <input type="number">
+      </td>
+      <td>
+        <select>
+          <option value="USD">USD</option>
+          <option value="VND">EUR</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="USD">USD</option>
+          <option value="VND">EUR</option>
+        </select>
+      </td>
+      <td>
+        <button>Convert</button>
+      </td>
+    </tr>
+  </table>
+</form>
+<script src="ung_dung_chuyen_doi_tien_te.js"></script>
+</body>
+</html>
