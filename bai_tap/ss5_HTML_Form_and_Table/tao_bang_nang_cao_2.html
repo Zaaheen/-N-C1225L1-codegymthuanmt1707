@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Lịch tháng 10</title>
+  <style>
+    .calendar {
+      width: 400px;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .month-title {
+      color: blue;
+      font-size: 24px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+
+    .calendar td {
+      border: 1px solid #ccc;
+      width: 50px;
+      height: 40px;
+      position: relative;
+    }
+
+    .header-vn td {
+      color: white;
+      font-weight: bold;
+      height: 30px;
+    }
+
+    .header-en td {
+      color: black;
+      height: 25px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .sun {
+      background-color: red;
+    }
+    .sat {
+      background-color: blue;
+    }
+    .weekday {
+      background-color: orange;
+    }
+
+    .day-num {
+      font-size: 18px;
+    }
+    .lunar-num {
+      font-size: 10px;
+      vertical-align: sub;
+      margin-left: 2px;
+    }
+
+    .text-sun {
+      color: red;
+    }
+    .text-sat {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+<div class="month-title" style="text-align: center;">Tháng 10 - October</div>
+
+<table class="calendar">
+  <tr class="header-vn">
+    <td class="sun">C.Nhật</td>
+    <td class="weekday">T.Hai</td>
+    <td class="weekday">T.Ba</td>
+    <td class="weekday">T.Tư</td>
+    <td class="weekday">T.Năm</td>
+    <td class="weekday">T.Sáu</td>
+    <td class="sat">T.Bảy</td>
+  </tr>
+
+  <tr class="header-en">
+    <td class="text-sun">Sun</td>
+    <td>Mon</td>
+    <td>Tue</td>
+    <td>Wed</td>
+    <td>Thu</td>
+    <td>Fri</td>
+    <td class="text-sat">Sat</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><span class="day-num">1</span><sub class="lunar-num">13</sub></td>
+    <td><span class="day-num">2</span><sub class="lunar-num">14</sub></td>
+    <td class="text-sat"><span class="day-num">3</span><sub class="lunar-num">15</sub></td>
+  </tr>
+  <tr>
+    <td class="text-sun"><span class="day-num">4</span><sub class="lunar-num">16</sub></td>
+    <td><span class="day-num">5</span><sub class="lunar-num">17</sub></td>
+    <td><span class="day-num">6</span><sub class="lunar-num">18</sub></td>
+    <td><span class="day-num">7</span><sub class="lunar-num">19</sub></td>
+    <td><span class="day-num">8</span><sub class="lunar-num">20</sub></td>
+    <td><span class="day-num">9</span><sub class="lunar-num">21</sub></td>
+    <td class="text-sat"><span class="day-num">10</span><sub class="lunar-num">22</sub></td>
+  </tr>
+  <tr>
+    <td class="text-sun"><span class="day-num">11</span><sub class="lunar-num">23</sub></td>
+    <td><span class="day-num">12</span><sub class="lunar-num">24</sub></td>
+    <td><span class="day-num">13</span><sub class="lunar-num">25</sub></td>
+    <td><span class="day-num">14</span><sub class="lunar-num">26</sub></td>
+    <td><span class="day-num">15</span><sub class="lunar-num">27</sub></td>
+    <td><span class="day-num">16</span><sub class="lunar-num">28</sub></td>
+    <td class="text-sat"><span class="day-num">17</span><sub class="lunar-num">29</sub></td>
+  </tr>
+  <tr>
+    <td class="text-sun"><span class="day-num">18</span><sub class="lunar-num">1.9</sub></td>
+    <td><span class="day-num">19</span><sub class="lunar-num">2</sub></td>
+    <td><span class="day-num">20</span><sub class="lunar-num">3</sub></td>
+    <td><span class="day-num">21</span><sub class="lunar-num">4</sub></td>
+    <td><span class="day-num">22</span><sub class="lunar-num">5</sub></td>
+    <td><span class="day-num">23</span><sub class="lunar-num">6</sub></td>
+    <td class="text-sat"><span class="day-num">24</span><sub class="lunar-num">7</sub></td>
+  </tr>
+  <tr>
+    <td class="text-sun"><span class="day-num">25</span><sub class="lunar-num">8</sub></td>
+    <td><span class="day-num">26</span><sub class="lunar-num">9</sub></td>
+    <td><span class="day-num">27</span><sub class="lunar-num">10</sub></td>
+    <td><span class="day-num">28</span><sub class="lunar-num">11</sub></td>
+    <td><span class="day-num">29</span><sub class="lunar-num">12</sub></td>
+    <td><span class="day-num">30</span><sub class="lunar-num">13</sub></td>
+    <td class="text-sat"><span class="day-num">31</span><sub class="lunar-num">14</sub></td>
+  </tr>
+</table>
+
+</body>
+</html>
