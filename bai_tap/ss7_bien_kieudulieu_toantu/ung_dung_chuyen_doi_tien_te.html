@@ -30,7 +30,7 @@
   <table>
     <tr>
       <td>
-        <label id="soTien">Amount</label>
+        <label>Amount</label>
       </td>
       <td>
         <label>From Currency</label>
@@ -42,25 +42,26 @@
 
     <tr>
       <td>
-        <input type="number">
+        <input type="number" id="amount">
       </td>
       <td>
-        <select>
+        <select id="fromCurr">
           <option value="USD">USD</option>
-          <option value="VND">EUR</option>
+          <option value="VND">VND</option>
         </select>
       </td>
       <td>
-        <select>
+        <select id="toCurr">
           <option value="USD">USD</option>
-          <option value="VND">EUR</option>
+          <option value="VND">VND</option>
         </select>
       </td>
       <td>
-        <button>Convert</button>
+        <button type="button" id="btnConvert" onclick="convert()">Convert</button>
       </td>
     </tr>
   </table>
+  <div id="result">Result: </div>
 </form>
 <script src="ung_dung_chuyen_doi_tien_te.js"></script>
 </body>
