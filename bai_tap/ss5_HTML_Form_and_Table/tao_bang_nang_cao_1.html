@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffca00;
+      margin: 0;
+    }
+
+    #chessBoard {
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    #chessBoard td {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      vertical-align: middle;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 18px;
+    }
+    .label {
+      background-color: #f0f0f0 !important;
+      font-weight: bold;
+      color: #666;
+    }
+    .label-num {
+      width: 30px !important;
+    }
+    .label-char {
+      height: 30px !important;
+    }
+    #chessBoard td:first-child {
+      background-color: #ffca00 !important;
+    }
+
+    #chessBoard tr:first-child td {
+      background-color: #ffca00 !important;
+    }
+    #chessBoard tr:nth-child(odd) td:nth-child(even) {
+      background-color: #000000;
+    }
+    #chessBoard tr:nth-child(odd) td:nth-child(odd):not(.label) {
+      background-color: #ffffff;
+    }
+    #chessBoard tr:nth-child(even) td:nth-child(even) {
+      background-color: #ffffff;
+    }
+    #chessBoard tr:nth-child(even) td:nth-child(odd):not(.label) {
+      background-color: #000000;
+    }
+
+  </style>
+</head>
+<body>
+<table id="chessBoard">
+  <tr>
+    <td class="label"></td> <td class="label label-char">1</td>
+    <td class="label label-char">2</td>
+    <td class="label label-char">3</td>
+    <td class="label label-char">4</td>
+    <td class="label label-char">5</td>
+    <td class="label label-char">6</td>
+    <td class="label label-char">7</td>
+    <td class="label label-char">8</td>
+  </tr>
+  <tr>
+    <td class="label label-num">A</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label label-num">B</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label label-num">C</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label label-num">D</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label label-num">E</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label label-num">F</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label label-num">G</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label label-num">H</td>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+
+</table>
+</body>
+</html>
