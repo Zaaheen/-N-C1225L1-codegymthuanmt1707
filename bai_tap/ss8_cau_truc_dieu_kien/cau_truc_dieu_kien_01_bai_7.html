@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+ <script>
+   // Tính cước điện thoại cho một hộ gia đình dựa trên các thông số được cung cấp.
+
+   let soPhut = +prompt("Nhập tổng số phút đã gọi trong tháng:");
+   const PHI_CO_DINH = 20000;
+   let tongCuoc = 0;
+
+   if (isNaN(soPhut) || soPhut < 0) {
+     alert("Số phút không hợp lệ!");
+   } else {
+     if (soPhut <= 10) {
+       tongCuoc = 0;
+     } else if (soPhut <= 50) {
+       tongCuoc = PHI_CO_DINH + (soPhut * 600);
+     } else if (soPhut <= 200) {
+       tongCuoc = PHI_CO_DINH + (50 * 600) + (soPhut - 50) * 400;
+     } else {
+       tongCuoc = PHI_CO_DINH + (50 * 600) + (150 * 400) + (soPhut - 200) * 200;
+     }
+     alert(`Tổng cước điện thoại tháng này là: ${tongCuoc.toLocaleString()} VNĐ`);
+   }
+ </script>
+</body>
+</html>

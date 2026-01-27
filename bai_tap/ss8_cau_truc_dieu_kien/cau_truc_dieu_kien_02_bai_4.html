@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.
+
+    let a = +prompt("Nhập chiều dài:");
+    let b = +prompt("Nhập chiều rộng:");
+
+    if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0) {
+      alert("Nhập sai");
+    } else {
+      if (a < b) {
+        let temp = a; // Giữ tạm giá trị của a vào cốc trung gian
+        a = b;        // Gán giá trị của b cho a
+        b = temp;     // Lấy giá trị trong cốc trung gian đổ lại cho b
+      }
+
+      let hcn = a * b;
+      alert(`Diện tích hình chữ nhật có chiều dài ${a} và chiều rộng ${b} là: ${hcn.toFixed(1)}`);
+    }
+  </script>
+</body>
+</html>

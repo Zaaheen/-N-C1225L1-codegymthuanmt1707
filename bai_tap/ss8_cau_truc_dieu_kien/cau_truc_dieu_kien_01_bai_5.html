@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    //Xếp loại học lực của học sinh dựa trên:
+
+      // Điểm bài kiểm tra.
+      // Điểm thi giữa kỳ.
+      // Điểm thi cuối kỳ.
+
+    let baiKiemTra = +prompt("Nhập điểm bài kiểm tra:");
+    let thiGiuaKy = +prompt("Nhập điểm thi giữa kỳ:");
+    let thiCuoiky = +prompt("Nhập điểm thi cuối kỳ:");
+
+    if (isNaN(baiKiemTra) || isNaN(thiGiuaKy) || isNaN(thiCuoiky) ||
+      baiKiemTra < 0 || baiKiemTra > 10 ||
+      thiGiuaKy < 0 || thiGiuaKy > 10 ||
+      thiCuoiky < 0 || thiCuoiky > 10) {
+
+      alert("Vui lòng nhập lại");
+
+    } else {
+      let diemTB = (baiKiemTra * 2 + thiGiuaKy * 3 + thiCuoiky * 5) / 10;
+      alert(`Điểm trung bình của bạn là:  ${diemTB.toFixed(1)}`);
+
+      if (diemTB >= 8) {
+        alert("Học sinh giỏi");
+      } else if (diemTB >= 6.5) {
+        alert("Học sinh khá");
+      } else if (diemTB >= 5) {
+        alert("Học sinh trung bình");
+      } else if (diemTB >= 3.5) {
+        alert("Học sinh yếu");
+      } else {
+        alert("Học lại");
+      }
+    }
+  </script>
+</body>
+</html>
