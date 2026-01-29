@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // Giải phương trình bậc 2.
+
+    let a = +prompt("Nhập a:");
+    let b = +prompt("Nhập b:");
+    let c = +prompt("Nhập c:");
+    let phuongTrinh = `Phương trình ${a}x² + ${b}x + ${c} = 0`;
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+      alert("Vui lòng nhập số ");
+    } else if (a === 0) {
+      if (b === 0) {
+        if (c === 0) {
+          alert(`${phuongTrinh} có vô số nghiệm`);
+        } else {
+          alert(`${phuongTrinh} vô nghiệm`);
+        }
+      } else {
+        let x =-c/b;
+        alert(`${phuongTrinh} có nghiệm x=${x}`);
+      }
+    } else {
+      let delta = b**2 - (4*a*c) ;
+
+      if (delta < 0) {
+        alert(`${phuongTrinh} vô nghiệm`);
+      } else if (delta === 0) {
+        let x = -b/(2*a);
+        alert(`${phuongTrinh} có nghiệm kép x1=x2=${x}`);
+      } else {
+        let x1 = (-b+Math.sqrt(delta))/(2*a);
+        let x2 = (-b-Math.sqrt(delta))/(2*a);
+        alert(`Phương trình ${phuongTrinh} có 2 nghiệm phân biệt:\nx1 = ${x1.toFixed(2)}\nx2 = ${x2.toFixed(2)}`);
+      }
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // Kiểm tra xem một số nhập vào có phải là tuổi của một người không.
+    // Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.
+
+    let age = +prompt("Nhập số tuổi:");
+
+    if (isNaN(age)) {
+      alert("Vui lòng nhập lại");
+    } else if (!Number.isInteger(age)) {
+      alert("Số tuổi là số nguyên");
+    } else if (age <= 0 || age >= 120) {
+      alert("Số tuổi không đúng");
+    } else {
+      alert(`Số tuổi của bạn là ${age}`);
+    }
+  </script>
+</body>
+</html>
