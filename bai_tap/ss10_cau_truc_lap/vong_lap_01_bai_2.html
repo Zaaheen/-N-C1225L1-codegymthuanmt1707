@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    //Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập.
+    // Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ.
+    // Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.
+
+    let nhietDo = +prompt("Nhập:");
+
+    while (isNaN(nhietDo) || nhietDo < 20 || nhietDo > 100) {
+
+      if (nhietDo < 20) {
+        alert("Tăng nhiệt độ")
+      } else if (nhietDo > 100) {
+        alert("Giảm nhiệt độ")
+      } else {
+        alert("Nhập sai")
+      }
+      nhietDo = +prompt("Nhập lại nhiệt độ:");
+    }
+    alert("OK")
+  </script>
+</body>
+</html>
