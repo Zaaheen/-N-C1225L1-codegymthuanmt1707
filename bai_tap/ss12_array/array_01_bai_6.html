@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = [];
+    let n = +prompt("Nhập số phẩn tử có trong mảng:");
+    for (let i = 0; i < n; i++){
+      let phanTu = +prompt("Nhập phần tử thứ " + (i + 1));
+      arr.push(phanTu);
+    }
+    document.write(arr + "<br>");
+
+    let v = +prompt("Nhập số cần tìm:");
+    // cách 1
+    let isExist = false;
+    for (let i = 0; i < arr.length; i++){
+      if (arr[i] === v){
+        isExist = true;
+        break;
+      }
+    }
+    if (isExist) {
+      document.write(`${v} is in the array`);
+    } else {
+      document.write(`${v} is not in the array`);
+    }
+
+    // cách 2
+    if (arr.includes(v)){
+      document.write(`${v} is in the array`);
+    } else {
+      document.write(`${v} is not in the array`);
+    }
+
+  </script>
+</body>
+</html>

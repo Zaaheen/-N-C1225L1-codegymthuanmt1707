@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = [];
+    let n = +prompt("Nhập số phẩn tử có trong mảng:")
+    for (let i = 0; i < n; i++){
+      let phanTu = +prompt("Nhập phần tử thứ " + (i + 1));
+      arr.push(phanTu);
+    }
+    document.write(arr + "<br>");
+
+    // cách 1
+    let count = 0;
+    for (let i = 0; i < arr.length; i++){
+      if (arr[i] < 0){
+        count++;
+      }
+    }
+    document.write(count + "<br>");
+
+    // cách 2
+    let soAm = arr.filter(x => x < 0); // hàm mũi tên x => x < 0
+    document.write(soAm.length);
+  </script>
+</body>
+</html>
