@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = [];
+
+    for (let i = 0; i < 10; i++) {
+      let phanTu = +prompt("Nhập phần tử thứ " + (i + 1));
+      if (arr.includes(phanTu)) { // trả về true nếu như giá trị đã có trong mảng
+        alert("Nhập bị trùng lặp");
+        // break; thay vì break thì dùng i-- để nhập lại
+        i--;
+      } else {
+        arr.push(phanTu);
+      }
+    }
+    document.write(arr + "<br>");
+    let max = arr[0];
+    let indexMax = 0;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i];
+        indexMax = i;
+      }
+    }
+    document.write("Số lớn nhất trong mảng là: " + max +"<br>"+ " tại vị trí thứ " + (indexMax + 1));
+  </script>
+</body>
+</html>

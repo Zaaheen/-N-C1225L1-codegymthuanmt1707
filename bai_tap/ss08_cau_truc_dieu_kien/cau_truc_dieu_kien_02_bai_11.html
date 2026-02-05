@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // Viết chương trình tính thuế thu nhập cá nhân.
+
+    let thuNhap = +prompt("Nhập tổng thu nhập của bạn:");
+    let thue = 0;
+
+    if (isNaN(thuNhap)) {
+      alert("Nhập không hợp lệ!");
+    } else if (thuNhap<= 0){
+      alert("Không phải nộp thuế")
+    } else {
+      if (thuNhap <= 5000000) {
+        thue = thuNhap * 0.05;
+      } else if (thuNhap <= 10000000) {
+        thue = thuNhap  * 0.07;
+      } else {
+        thue = thuNhap * 0.1;
+      }
+
+      alert(`Thuế: ${thue.toLocaleString()} VNĐ`);
+    }
+  </script>
+  </script>
+</body>
+</html>

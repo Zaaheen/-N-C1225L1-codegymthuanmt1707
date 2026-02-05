@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // Viết chương trình tính giá điện.
+
+    let soChuDien = +prompt("Nhập tổng số chữ điện tiêu thụ (kWh):");
+    let tongTien = 0;
+
+    const G1 = 1806, G2 = 1866, G3 = 2167;
+
+    if (isNaN(soChuDien) || soChuDien < 0) {
+      alert("Số chữ điện không hợp lệ!");
+    } else {
+      if (soChuDien <= 50) {
+        tongTien = soChuDien * G1;
+      } else if (soChuDien <= 100) {
+        tongTien = (50 * G1) + (soChuDien - 50) * G2;
+      } else {
+        tongTien = (50 * G1) + (50 * G2) + (soChuDien - 100) * G3;
+      }
+
+      // Tiền điện thường có thêm 8% thuế VAT
+      let thueVAT = tongTien * 0.08;
+      let tongThanhToan = tongTien + thueVAT;
+
+      alert(`Tiền điện: ${tongTien.toLocaleString()} VNĐ\n` +
+        `Thuế VAT (8%): ${thueVAT.toLocaleString()} VNĐ\n` +
+        `Tổng cộng: ${tongThanhToan.toLocaleString()} VNĐ`);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // bài 1
+    let myColor = ["red", "green", "blue"];
+    document.write(myColor.join() + "<br>");
+
+    //bài 2
+    let chuoiSo = prompt("Nhập:");
+    let so = chuoiSo.split("");
+
+    for (let i = so.length-1; i > 0; i--) {
+      if (so[i] % 2 === 0 && so[i-1] % 2 === 0) {
+        so.splice(i, 0, "-"); // bắt đầu từ ví trí "i', ko xoá thì "0", thêm dấu "-"
+      }
+    }
+    document.write(so.join("") + "<br>");
+
+    //bài 3
+    let chuoi = prompt("Nhập:");
+    let vietLai = chuoi.split("").map(function (chu) { // khởi tạo hàm
+      if (chu === chu.toUpperCase()) {
+        return chu.toLowerCase(); // đổi về chữ thường
+      } else {
+        return chu.toUpperCase(); // đổi về chữ hoa
+      }
+    });
+    // vietLai.join("");
+    document.write(vietLai.join("") + "<br>");
+
+
+  </script>
+</body>
+</html>

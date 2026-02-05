@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+      let phanTu = +prompt("Nhập phần tử thứ " + (i + 1));
+      arr.push(phanTu);
+    }
+    document.write(arr + "<br>");
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] >= 10) {
+        document.write(arr[i] + ",");
+      }
+    }
+  </script>
+</body>
+</html>
