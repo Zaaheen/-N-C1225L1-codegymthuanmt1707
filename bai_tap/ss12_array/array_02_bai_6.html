@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let mang = prompt("Nhập mảng:");
+    // let phanTu = mang.split("");
+    //
+    // for (let i=0; i<phanTu.length; i++) {
+    //   if (phanTu[i] === "-") {
+    //     phanTu.splice(i, 1, "_");
+    //   }
+    // }
+    // document.write(phanTu.join(""));
+
+    // Cách 2
+    let result = mang.replaceAll("-", "_");
+    document.write(result);
+  </script>
+</body>
+</html>

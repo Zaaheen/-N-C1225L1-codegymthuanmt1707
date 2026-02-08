@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = prompt("Nhập mảng:");
+    let arrNew = arr.trim(); // Loại bỏ các khoảng trắng thừa ở đầu và cuối
+
+    if (arrNew === " "){
+      document.write("Số từ là : 0")
+    } else {
+      let tu = arrNew.split(/\s+/); // Loại bỏ khoảng trắng
+      document.write("Số từ trong chuỗi là: " + tu.length)
+    }
+  </script>
+</body>
+</html>
