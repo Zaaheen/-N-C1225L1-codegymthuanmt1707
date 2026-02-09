@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input type="number" id="num1"> <br>
+  <input type="number" id="num2"> <br>
+  <button onclick="check()">Kiểm tra</button>
+  <p id="result"></p>
+<script>
+  function check() {
+    let n1 = Number(document.getElementById("num1").value);
+    let n2 = Number(document.getElementById("num2").value);
+    let resultDisplay = document.getElementById("result");
+
+    if (n1 > n2) {
+      alert("Số thứ nhất phải nhỏ hơn số thứ hai");
+    } else {
+      let result = n1 + n2;
+      resultDisplay.innerHTML = "Tổng là " + result;
+    }
+  }
+</script>
+</body>
+</html>

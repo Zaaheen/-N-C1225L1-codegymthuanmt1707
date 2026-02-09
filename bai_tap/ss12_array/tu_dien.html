@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input type="text" id="englishWord">
+  <button onclick="dich()">Dịch</button>
+  <p id="result"></p>
+
+  <script>
+    let tiengAnh = ["red", "green", "blue"];
+    let tiengViet = ["đỏ", "xanh lá", "xanh nước biển"];
+
+    function dich() {
+
+      let input = document.getElementById("englishWord").value;
+      let index = tiengAnh.indexOf(input);
+      let resultDisplay = document.getElementById("result");
+
+      if (index !== -1) {
+        let vietnameseWord = tiengViet[index];
+        resultDisplay.innerHTML = "Nghĩa của từ: " + vietnameseWord;
+      } else {
+        resultDisplay.innerHTML = "Không tìm thấy từ này trong từ điển.";
+      }
+    }
+  </script>
+</body>
+</html>
