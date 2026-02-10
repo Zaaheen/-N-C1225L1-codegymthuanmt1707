@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    function addNumbers() {
+      firstNum = 4;
+      secondNum = 8;
+      result = firstNum + secondNum;
+
+      // Vị trí 2: Hiển thị kết quả ngay khi vừa tính toán xong bên trong hàm
+      alert("Giá trị result bên trong hàm: " + result);
+
+      return result;
+    }
+
+    result = 0;
+
+    // Vị trí 1: Hiển thị giá trị result trước khi gọi hàm (lúc này vẫn là 0)
+    alert("Giá trị result trước khi gọi hàm: " + result);
+
+    result = addNumbers();
+
+    // Vị trí 3: Hiển thị giá trị result sau khi hàm đã thực thi xong và trả về giá trị
+    alert("Giá trị result sau khi gọi hàm: " + result);
+  </script>
+</body>
+</html>

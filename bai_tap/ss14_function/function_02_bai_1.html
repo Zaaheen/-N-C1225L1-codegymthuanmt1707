@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <input id="num" type="number">
+  <button onclick="display()">Tính</button>
+  <p id="result"></p>
+
+  <script>
+    function square(number) {
+      return number * number;
+    }
+
+    function display() {
+      let num = document.getElementById("num").value;
+      let resultDisplay = square(num);
+      if (num === "") {
+        document.getElementById("result").innerHTML = "Vui lòng nhập một số!";
+        return;
+      }
+      document.getElementById("result").innerHTML = resultDisplay;
+    }
+  </script>
+</body>
+</html>

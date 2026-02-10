@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input id="num" type="number">
+  <button onclick="display()">Tính</button>
+  <p id="result"></p>
+
+  <script>
+    function tinhGiaiThua(n) {
+      if (n === 0 || n === 1) {
+        return 1;
+      }
+      let giaiThua = 1;
+      for (let i = 2; i <= n; i++) {
+        giaiThua *= i;
+      }
+      return giaiThua;
+    }
+
+    function display() {
+      let num = +document.getElementById('num').value;
+      let resultDisplay = tinhGiaiThua(num);
+      if (num < 0){
+        document.getElementById("result").innerHTML = "Vui lòng nhập đúng";
+        return;
+      }
+      document.getElementById("result").innerHTML = resultDisplay;
+    }
+  </script>
+</body>
+</html>

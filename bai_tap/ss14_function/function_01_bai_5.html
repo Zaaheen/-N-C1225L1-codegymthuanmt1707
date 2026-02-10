@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input type="text" id="tenNgoiSao">
+  <button onclick="timKiem()">Tìm</button>
+  <p id="result"></p>
+
+  <script>
+
+    let ngoiSao = [ "Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let chomSao = [ "Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function timKiem() {
+      let input = document.getElementById("tenNgoiSao").value.toLowerCase().trim();
+      let resultDisplay = document.getElementById("result");
+
+      let index = -1;
+      for (let i = 0; i < ngoiSao.length; i++) {
+        if (ngoiSao[i].toLowerCase() === input) {
+          index = i;
+          break;
+        }
+      }
+
+      if (index !== -1) {
+        let count = chomSao[index];
+        resultDisplay.innerHTML = count ;
+      } else {
+        resultDisplay.innerHTML = "Không tìm thấy ngôi sao";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input id="value" type="text" maxlength="1">
+  <button type="button" onclick="display()">Kiểm tra</button>
+  <p id="result"></p>
+
+  <script>
+    function isNumber(char) {
+      if (char.trim() === ""){
+        return false;
+      }
+      return !isNaN(char);
+    }
+    function display() {
+      let value = document.getElementById("value").value;
+      let check = isNumber(value);
+
+      if (check){
+        document.getElementById("result").innerHTML = "True";
+      } else {
+        document.getElementById("result").innerHTML = "False";
+      }
+    }
+  </script>
+</body>
+</html>

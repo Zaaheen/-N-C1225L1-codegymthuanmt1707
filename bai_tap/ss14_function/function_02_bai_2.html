@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input id="banKinh" type="number">
+  <button type="button" id="dienTich"> Tính diện tích hình tròn </button>
+  <button type="button" id="chuVi"> Tính chu vi hình tròn </button>
+  <p id="result"></p>
+<script>
+  document.getElementById('dienTich').addEventListener('click', function () {tinh('dienTich');});
+  document.getElementById('chuVi').addEventListener('click', function () {tinh('chuVi');});
+
+  function tinh(hinhTron) {
+    let bk = +document.getElementById("banKinh").value;
+    let result = 0;
+    const pi = 3.14;
+
+    if (bk <= 0) {
+      document.getElementById("result").innerHTML = "Vui lòng nhập đúng";
+      return;
+    }
+    if (hinhTron === 'dienTich') result = bk * bk * pi;
+    if (hinhTron === 'chuVi') result = 2 * bk * pi;
+
+    document.getElementById("result").innerHTML = result.toFixed(2);
+
+  }
+</script>
+</body>
+</html>
