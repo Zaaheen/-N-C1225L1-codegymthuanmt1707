@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = [];
+    let n = +prompt("Nhập số phẩn tử có trong mảng:")
+    for (let i = 0; i < n; i++){
+      let phanTu = +prompt("Nhập phần tử thứ " + (i + 1));
+      arr.push(phanTu);
+    }
+    function daoNguocMang(arr) {
+      return arr.reverse();
+    }
+    document.write(daoNguocMang(arr));
+  </script>
+</body>
+</html>

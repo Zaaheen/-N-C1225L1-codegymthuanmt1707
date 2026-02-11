@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = prompt("Nhập mảng:");
+    let char = prompt("Nhập ký tự muốn kiểm tra:");
+
+    function catMang(arr) {
+      return arr.split("");
+    }
+
+    function kiemTraMang(arr, char) {
+      let mangDaCat = catMang(arr);
+      let count = 0;
+      for (let i = 0; i < mangDaCat.length; i++) {
+        if (char === mangDaCat[i]) {
+          count++;
+        }
+      }
+      if (count > 0) {
+        return count;
+      } else {
+        return -1;
+      }
+    }
+    document.write(kiemTraMang(arr, char));
+  </script>
+</body>
+</html>

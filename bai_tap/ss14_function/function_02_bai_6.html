@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let num = +prompt("Nhập số:");
+
+    function soDuong(num) {
+      if (isNaN(num) || num === "") {
+        return "Vui lòng nhập số";
+      }
+      return num > 0;
+    }
+    document.write(soDuong(num));
+  </script>
+</body>
+</html>
