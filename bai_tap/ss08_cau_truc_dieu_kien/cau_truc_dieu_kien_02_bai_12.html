@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con)
+  // khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+
+  let soTienVay = +prompt("Nhập số tiền ban đầu:");
+  let thoiGian = +prompt("Số tháng cho vay:");
+  let laiSuat;
+  let tongTien;
+  let tienLai;
+
+  if (isNaN(soTienVay) || isNaN(thoiGian) || soTienVay <= 0 || thoiGian <= 0) {
+    alert("Vui lòng nhập số dương hợp lệ!");
+  } else {
+    if (thoiGian <= 12) {
+      laiSuat = 0.005;
+    } else if (thoiGian <= 36) {
+      laiSuat = 0.007;
+    } else {
+      laiSuat = 0.01;
+    }
+
+    tongTien = soTienVay * Math.pow((1 + laiSuat), thoiGian);
+    tienLai = tongTien - soTienVay;
+
+    alert(`Số tiền cả gốc lẫn lãi: ${tongTien.toFixed(0)} VNĐ\n` +
+      `Số tiền lãi phải trả: ${tienLai.toFixed(0)} VNĐ`);
+  }
+</script>
+</body>
+</html>
