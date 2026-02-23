@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <button onclick="doanSo()">Đoán xem</button>
+  <script>
+    function doanSo() {
+      let n = +prompt("Bạn muốn sô ở khoảng nào (1-->n) :");
+      let count = 0;
+      let randomNum = (Math.random() * n |0) +1; // loại bỏ phần thập phân phía sau và giữ là phần nguyên
+
+      do {
+        let number = +prompt("Nhập số bạn cho là đúng:")
+        if (number <1 || number > n) {
+          alert("Nhập sai");
+          return;
+        }
+        if (number === randomNum) {
+          alert("Chúc mừng");
+          return;
+        } else if (number < randomNum) {
+          count++;
+          alert("Số bạn đoán nhỏ hơn")
+        } else {
+          count++;
+          alert("Số bạn đoán lớn hơn")
+        }
+
+        if (count === 3) {
+          alert("Bạn đã hết lượt")
+        }
+      }
+      while (count < 3) ;
+    }
+
+  </script>
+</body>
+</html>
