@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <canvas id="myCanvas" width="1000" height="500" style="border:1px solid black;"></canvas>
+  <p id="result"></p>
+
+  <script>
+    class Rectangle {
+      length;
+      width;
+
+      constructor(width, length) {
+        this.length = length;
+        this.width = width;
+      }
+
+      perimeter() {
+        return (this.length + this.width) * 2;
+      }
+      area() {
+        return this.length*this.width;
+      }
+
+      draw(canvasId) {
+        let canvas = document.getElementById(canvasId);
+        let ctx = canvas.getContext("2d");
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(10, 10, this.width, this.length);
+      }
+    }
+
+    let hcn = new Rectangle(150, 100);
+
+    hcn.draw("myCanvas");
+
+    document.write("Chu vi:", hcn.perimeter());
+    document.write("Diện tích:", hcn.area());
+
+    hcn.length = 350;
+    hcn.width = 250;
+
+    hcn.draw("myCanvas");
+    document.getElementById("myCanvas").innerHTML =
+      `Chu vi: ${hcn.perimeter()} <br> Diện tích: ${hcn.area()}`;
+  </script>
+</body>
+</html>
