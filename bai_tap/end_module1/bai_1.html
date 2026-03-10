@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr = [];
+    let n ;
+
+    do {
+      n = +prompt("Nhập số phẩn tử có trong mảng:")
+      if (n <= 0 || n > 50) {
+        alert("Vui lòng nhập lại")
+      }
+    } while (n <= 0 || n > 50);
+
+    for (let i = 0; i < n; i++) {
+      let phanTu = +prompt("Nhập phần tử thứ " + (i+1));
+      arr.push(phanTu);
+    }
+    document.write(arr +"<br>");
+
+    let sum = 0;
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 3 ===0) {
+        sum += arr[i];
+        count++;
+      }
+    }
+
+    if (count > 0) {
+      let tb = sum / count;
+      document.write("Trung bình cộng các số chia hết cho 3 là: " + tb);
+    } else {
+      document.write("Không có số nào trong mảng chia hết cho 3");
+    }
+  </script>
+</body>
+</html>

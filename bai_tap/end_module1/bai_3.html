@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <label>Nhập tháng:</label>
+  <input type="number" name="" id="month"> <br>
+  <label>Nhập năm:</label>
+  <input type="number" name="" id="year"> <br>
+  <button type="button" id="calcutor">Tính số ngày</button>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById('calcutor').addEventListener('click', function() {
+      let month = parseInt(document.getElementById('month').value);
+      let year = parseInt(document.getElementById('year').value);
+      let message = "";
+
+      switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+          message = `Tháng ${month}/${year} có 31 ngày`;
+          break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+          message = `Tháng ${month}/${year} có 30 ngày`;
+          break;
+        case 2:
+          year = parseInt(document.getElementById('year').value);
+          let isLeapYear = (year % 400 === 0 )|| (year % 4 === 0 && year % 100 !== 0);
+          if (isLeapYear) {
+            message = `Tháng ${month}/${year} có 29 ngày`;
+          } else {
+            message = `Tháng ${month}/${year} có 28 ngày`;
+          }
+          break;
+        default:
+          message = "Vui lòng nhập tháng hợp lệ từ 1 đến 12";
+      }
+
+      document.getElementById('result').innerText = message;
+    })
+
+  </script>
+</body>
+</html>
