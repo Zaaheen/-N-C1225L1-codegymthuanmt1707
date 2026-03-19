@@ -2,7 +2,7 @@ package ss1_introduction_to_java;
 
 import java.util.Scanner;
 
-public class ung_dung_doc_so_thanh_chu {
+public class UngDungDocSoThanhChu {
 
     private static final String[] units = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     private static final String[] teens = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
