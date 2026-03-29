@@ -14,8 +14,7 @@ public class LopHinhChuNhat {
         System.out.println("Perimeter of the Rectangle: "+ rectangle.getPerimeter());
         System.out.println("Area of the Rectangle: "+ rectangle.getArea());
     }
-}
-class Rectangle {
+    public static class Rectangle{
         double width, height;
 
         public Rectangle(){
@@ -35,4 +34,5 @@ class Rectangle {
             return "Rectangle{" + "width=" + width + ", height=" + height + "}";
         }
     }
+}
 
