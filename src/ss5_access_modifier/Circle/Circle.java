@@ -22,7 +22,23 @@ public class Circle {
         }
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public double getArea(){
         return Math.PI * this.radius * this.radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
