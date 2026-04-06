@@ -1,6 +1,6 @@
 package ss7_abstract_interface;
 
-public class Square extends Rectangle implements Resizeable{
+public class Square extends Rectangle implements Resizeable, Colorable{
 
     public Square() {
     }
@@ -37,5 +37,10 @@ public class Square extends Rectangle implements Resizeable{
         return "A Square with side = " + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Blackpink");
     }
 }

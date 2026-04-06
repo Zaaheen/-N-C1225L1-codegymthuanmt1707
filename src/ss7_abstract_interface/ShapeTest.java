@@ -18,31 +18,47 @@ public class ShapeTest {
     }
     public void displayAndResize(Shape[] shapes){
         for (Shape shape : shapes){ // Shape là kiểu dữ liệu đối tượng, shape là tên biến, shapes là tên mảng
-            double areaBefore = getAreaOfShape(shape);
+            double areaBefore = shape.getArea();
             double percent = Math.random() * 100 + 1;
 
             if (shape instanceof Resizeable){
                 ((Resizeable) shape).resize(percent);
             }
 
-            double areaAfter = getAreaOfShape(shape);
+            double areaAfter = shape.getArea();
 
             printResult(shape,percent,areaBefore,areaAfter);
         }
     }
-    private double getAreaOfShape(Shape shape){
-        if (shape instanceof Circle){
-            return ((Circle) shape).getArea(); // Ép kiểu
-        } else if (shape instanceof Rectangle){ // Class Square là lớp con của Rectangle
-            return  ((Rectangle) shape).getArea();
+    public void displayColor(Shape[] shapes){
+        for (Shape shape : shapes){
+            if (shape instanceof Colorable){
+                ((Colorable) shape).howToColor();
+            }
         }
-        return 0;
     }
+//      Vì class Shape đổi thành abstract class nên ko cần ép kiểu
+//    private double getAreaOfShape(Shape shape){
+//        if (shape instanceof Circle){
+//            return ((Circle) shape).getArea(); // Ép kiểu
+//        } else if (shape instanceof Rectangle){ // Class Square là lớp con của Rectangle
+//            return  ((Rectangle) shape).getArea();
+//        }
+//        return 0;
+//    }
+
+
     private void printResult(Shape shape, double percent, double before, double after) {
         System.out.println("Hình: " + shape.getClass().getSimpleName());
         System.out.println("- Tỉ lệ tăng: " + Math.round(percent) + "%");
         System.out.println("- Diện tích trước: " + String.format("%.2f", before));
         System.out.println("- Diện tích sau: " + String.format("%.2f", after));
+
+        if (shape instanceof Colorable){
+            System.out.print("- Màu: ");
+            ((Colorable) shape).howToColor();
+        }
         System.out.println("-------------------------");
     }
+
 }
