@@ -1,6 +1,7 @@
 package ss8_clean_code.Repository;
 
-import ss12_java_collection_framework.entity.Customer;
+
+import ss8_clean_code.Entity.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CustomerRepository {
-    public List<Customer> findAll(){
+    public List<ss8_clean_code.Entity.Customer> findAll(){
         List<Customer> customers = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader("src/ss8_clean_code/Repository/customers.csv");
