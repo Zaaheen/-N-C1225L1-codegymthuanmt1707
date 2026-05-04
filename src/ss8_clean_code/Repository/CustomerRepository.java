@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CustomerRepository {
-    public List<ss8_clean_code.Entity.Customer> findAll(){
+    public List<Customer> findAll(){
         List<Customer> customers = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader("src/ss8_clean_code/Repository/customers.csv");
