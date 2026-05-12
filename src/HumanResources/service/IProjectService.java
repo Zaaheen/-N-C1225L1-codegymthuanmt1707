@@ -1,4 +1,7 @@
 package HumanResources.service;
 
-public interface IProjectService {
+import HumanResources.entity.Project;
+
+public interface IProjectService extends IService<Project>{
+
 }

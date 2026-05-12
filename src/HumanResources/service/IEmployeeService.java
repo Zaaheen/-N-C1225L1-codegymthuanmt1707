@@ -1,4 +1,9 @@
 package HumanResources.service;
 
-public interface IEmployeeService {
+import HumanResources.entity.Employee;
+
+import java.util.List;
+
+public interface IEmployeeService extends IService<Employee>{
+    List<Employee> getEmployeesByDepartment(int id);
 }
