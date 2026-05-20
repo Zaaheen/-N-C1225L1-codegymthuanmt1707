@@ -7,9 +7,9 @@ import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        File dataDir = new File("data");
+        File dataDir = new File("src/end_module_2/data");
         if (!dataDir.exists()) {
-            dataDir.mkdir();
+            dataDir.mkdirs();
         }
         MedicalRecordView service = new MedicalRecordView();
 
@@ -20,7 +20,14 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    int type = InputValidator.getInt("1. Thường | 2. VIP: ");
+                    int type;
+                    while (true) {
+                        type = InputValidator.getInt("Chọn loại bệnh án (1. Thường | 2. VIP): ");
+                        if (type == 1 || type == 2) {
+                            break;
+                        }
+                        System.out.println("Lỗi: Lựa chọn không hợp lệ! Vui lòng nhập 1 hoặc 2. (P6)");
+                    }
                     service.addRecord(type);
                     break;
                 case 2:

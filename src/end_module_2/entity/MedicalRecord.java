@@ -1,96 +1,116 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
 package end_module_2.entity;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public abstract class MedicalRecord {
-    private Integer orderNumber;
+    private int orderNumber;
     private String recordCode;
     private String patientCode;
     private String patientName;
     private LocalDate admissionDate;
     private LocalDate dischargeDate;
     private String reason;
-
     private static final DateTimeFormatter FILE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public MedicalRecord() {
-
     }
-    public MedicalRecord(Integer orderNumber, String recordCode, String patientCode, String patientName, LocalDate admissionDate, LocalDate dischargeDate, String reason) {
-        this.orderNumber = orderNumber;
-        this.recordCode = recordCode;
-        this.patientCode = patientCode;
-        this.patientName = patientName;
-        this.admissionDate = admissionDate;
-        this.dischargeDate = dischargeDate;
-        this.reason = reason;
+
+    public MedicalRecord(int var1, String var2, String var3, String var4, LocalDate var5, LocalDate var6, String var7) {
+        this.orderNumber = var1;
+        this.recordCode = var2 != null ? var2.toUpperCase() : null;
+        this.patientCode = var3 != null ? var3.toUpperCase() : null;
+        this.patientName = var4;
+        this.admissionDate = var5;
+        this.dischargeDate = var6;
+        this.reason = var7;
+    }
+
+    public MedicalRecord(MedicalRecord var1) {
+        this.orderNumber = var1.orderNumber;
+        this.recordCode = var1.recordCode;
+        this.patientCode = var1.patientCode;
+        this.patientName = var1.patientName;
+        this.admissionDate = var1.admissionDate;
+        this.dischargeDate = var1.dischargeDate;
+        this.reason = var1.reason;
     }
 
     public int getOrderNumber() {
-        return orderNumber;
+        return this.orderNumber;
     }
 
-    public void setOrderNumber(Integer orderNumber) {
-        this.orderNumber = orderNumber;
+    public void setOrderNumber(int var1) {
+        this.orderNumber = var1;
     }
 
     public String getRecordCode() {
-        return recordCode;
+        return this.recordCode;
     }
 
-    public void setRecordCode(String recordCode) {
-        this.recordCode = recordCode;
+    public void setRecordCode(String var1) {
+        this.recordCode = var1 != null ? var1.toUpperCase() : null;
     }
 
     public String getPatientCode() {
-        return patientCode;
+        return this.patientCode;
     }
 
-    public void setPatientCode(String patientCode) {
-        this.patientCode = patientCode;
+    public void setPatientCode(String var1) {
+        this.patientCode = var1 != null ? var1.toUpperCase() : null;
     }
 
     public String getPatientName() {
-        return patientName;
+        return this.patientName;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public void setPatientName(String var1) {
+        this.patientName = var1;
     }
 
     public LocalDate getAdmissionDate() {
-        return admissionDate;
+        return this.admissionDate;
     }
 
-    public void setAdmissionDate(LocalDate admissionDate) {
-        this.admissionDate = admissionDate;
+    public void setAdmissionDate(LocalDate var1) {
+        this.admissionDate = var1;
     }
 
     public LocalDate getDischargeDate() {
-        return dischargeDate;
+        return this.dischargeDate;
     }
 
-    public void setDischargeDate(LocalDate dischargeDate) {
-        this.dischargeDate = dischargeDate;
+    public void setDischargeDate(LocalDate var1) {
+        this.dischargeDate = var1;
     }
 
     public String getReason() {
-        return reason;
+        return this.reason;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setReason(String var1) {
+        this.reason = var1;
     }
-    @Override
+
     public String toString() {
-        return String.format("%d,%s,%s,%s,%s,%s,%s",
-                orderNumber, recordCode, patientCode, patientName, admissionDate, dischargeDate, reason);
+        return String.format("%d,%s,%s,%s,%s,%s,%s", this.orderNumber, this.recordCode, this.patientCode, this.patientName, this.admissionDate, this.dischargeDate, this.reason);
     }
+
     public abstract String getSpecificInfo();
+
+    public abstract MedicalRecord copy();
+
+    protected String escapeComma(String var1) {
+        return var1 == null ? "" : var1.replace(",", "\\,");
+    }
+
     public String toCSVData() {
-        java.time.format.DateTimeFormatter fmt = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return orderNumber + "," + recordCode + "," + patientCode + "," + patientName + "," +
-                admissionDate.format(fmt) + "," + dischargeDate.format(fmt) + "," + reason;
+        int var10000 = this.orderNumber;
+        return var10000 + "," + this.escapeComma(this.recordCode) + "," + this.escapeComma(this.patientCode) + "," + this.escapeComma(this.patientName) + "," + this.admissionDate.format(FILE_FORMAT) + "," + this.dischargeDate.format(FILE_FORMAT) + "," + this.escapeComma(this.reason);
     }
 }

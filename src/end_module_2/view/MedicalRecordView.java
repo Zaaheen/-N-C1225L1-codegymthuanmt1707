@@ -1,11 +1,15 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
 package end_module_2.view;
 
-import end_module_2.utils.InputValidator;
 import end_module_2.entity.MedicalRecord;
 import end_module_2.entity.NormalRecord;
 import end_module_2.entity.VipRecord;
 import end_module_2.repository.MedicalRecordRepository;
-
+import end_module_2.utils.InputValidator;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -15,94 +19,87 @@ public class MedicalRecordView {
     private static final DateTimeFormatter VIEW_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void displayAll() {
-        List<MedicalRecord> list = repository.findAll();
-        if (list.isEmpty()) {
+        List<MedicalRecord> var1 = this.repository.findAll();
+        if (var1.isEmpty()) {
             System.out.println("Danh sách bệnh án hiện đang trống.");
-            return;
-        }
-        System.out.println("\n--- DANH SÁCH BỆNH ÁN ---");
-        System.out.printf("%-5s | %-10s | %-20s | %-12s | %-12s | %-20s%n",
-                "STT", "Mã BA", "Tên BN", "Nhập viện", "Ra viện", "Thông tin riêng");
-        System.out.println("-".repeat(90));
+        } else {
+            System.out.println("\n--- DANH SÁCH BỆNH ÁN ---");
+            System.out.printf("%-5s | %-10s | %-20s | %-12s | %-12s | %-20s%n", "STT", "Mã BA", "Tên BN", "Nhập viện", "Ra viện", "Thông tin riêng");
+            System.out.println("-".repeat(90));
 
-        for (MedicalRecord r : list) {
-            System.out.printf("%-5d | %-10s | %-20s | %-12s | %-12s | %-20s%n",
-                    r.getOrderNumber(),
-                    r.getRecordCode(),
-                    r.getPatientName(),
-                    r.getAdmissionDate().format(VIEW_FORMAT),
-                    r.getDischargeDate().format(VIEW_FORMAT),
-                    r.getSpecificInfo());
+            for(MedicalRecord var3 : var1) {
+                System.out.printf("%-5d | %-10s | %-20s | %-12s | %-12s | %-20s%n", var3.getOrderNumber(), var3.getRecordCode(), var3.getPatientName(), var3.getAdmissionDate().format(VIEW_FORMAT), var3.getDischargeDate().format(VIEW_FORMAT), var3.getSpecificInfo());
+            }
+
         }
     }
 
-    public void addRecord(int type) {
-        String recordCode;
-        // Kiểm tra trùng lặp mã bệnh án ngay tại View bằng cách hỏi Repository
-        while (true) {
-            recordCode = InputValidator.getValidRegex("Nhập mã bệnh án (BA-XXX): ", "BA-\\d{3}", "Lỗi: Mã BA phải có dạng BA-XXX (X là số)!");
-            if (repository.isRecordCodeExists(recordCode)) {
-                System.out.println("Lỗi: Mã bệnh án này đã tồn tại trên hệ thống! Vui lòng nhập mã khác.");
-            } else {
-                break;
+    public void addRecord(int var1) {
+        while(true) {
+            String var2 = InputValidator.getValidRegex("Nhập mã bệnh án (BA-XXX): ", "(?i)BA-\\d{3}", "Lỗi: Mã BA phải có dạng BA-XXX (X là số)!");
+            var2 = var2.toUpperCase();
+            if (!this.repository.isRecordCodeExists(var2)) {
+                String var3 = InputValidator.getValidRegex("Nhập mã bệnh nhân (BN-XXX): ", "(?i)BN-\\d{3}", "Lỗi: Mã BN phải có dạng BN-XXX (X là số)!");
+                var3 = var3.toUpperCase();
+                String var4 = InputValidator.getString("Nhập tên bệnh nhân: ");
+                LocalDate var5 = InputValidator.getLocalDate("Ngày nhập viện");
+
+                LocalDate var6;
+                for(var6 = InputValidator.getLocalDate("Ngày ra viện"); var5.isAfter(var6); var6 = InputValidator.getLocalDate("Nhập lại ngày ra viện")) {
+                    System.out.println("Lỗi: Ngày nhập viện không được sau ngày ra viện!");
+                }
+
+                String var7 = InputValidator.getString("Lý do nhập viện: ");
+                Object var8;
+                if (var1 != 1) {
+                    String var13 = InputValidator.getValidRegex("Loại VIP (VIP I, VIP II, VIP III): ", "VIP (I|II|III)", "Lỗi: Chỉ chấp nhận VIP I, II hoặc III!");
+                    LocalDate var10 = InputValidator.getLocalDate("Thời hạn VIP");
+                    var8 = new VipRecord(0, var2, var3, var4, var5, var6, var7, var13, var10);
+                } else {
+                    while(true) {
+                        double var9 = InputValidator.getDouble("Phí nằm viện: ");
+                        if (var9 > (double)0.0F) {
+                            var8 = new NormalRecord(0, var2, var3, var4, var5, var6, var7, var9);
+                            break;
+                        }
+
+                        System.out.println("Lỗi: Phí nằm viện phải là số thực lớn hơn 0! (P6)");
+                    }
+                }
+
+                boolean var14 = this.repository.add((MedicalRecord)var8);
+                if (var14) {
+                    System.out.println("Thêm mới bệnh án thành công!");
+                } else {
+                    System.out.println("Thêm mới thất bại do lỗi hệ thống.");
+                }
+
+                return;
             }
-        }
 
-        String patientCode = InputValidator.getValidRegex("Nhập mã bệnh nhân (BN-XXX): ", "BN-\\d{3}", "Lỗi: Mã BN phải có dạng BN-XXX (X là số)!");
-        String name = InputValidator.getString("Nhập tên bệnh nhân: ");
-
-        LocalDate admission = InputValidator.getLocalDate("Ngày nhập viện");
-        LocalDate discharge = InputValidator.getLocalDate("Ngày ra viện");
-
-        // Ràng buộc: Ngày nhập viện <= Ngày ra viện
-        while (admission.isAfter(discharge)) {
-            System.out.println("Lỗi: Ngày nhập viện không được sau ngày ra viện!");
-            discharge = InputValidator.getLocalDate("Nhập lại ngày ra viện");
-        }
-
-        String reason = InputValidator.getString("Lý do nhập viện: ");
-        MedicalRecord newRecord;
-
-        if (type == 1) {
-            double fee = InputValidator.getDouble("Phí nằm viện: ");
-            // Khởi tạo tạm STT là 0, Repository sẽ tự động ghi đè lại STT chuẩn trước khi lưu
-            newRecord = new NormalRecord(0, recordCode, patientCode, name, admission, discharge, reason, fee);
-        } else {
-            String vipType = InputValidator.getValidRegex("Loại VIP (VIP I, VIP II, VIP III): ", "VIP (I|II|III)", "Lỗi: Chỉ chấp nhận VIP I, II hoặc III!");
-            LocalDate duration = InputValidator.getLocalDate("Thời hạn VIP");
-            newRecord = new VipRecord(0, recordCode, patientCode, name, admission, discharge, reason, vipType, duration);
-        }
-
-        // Gọi Repository xử lý thêm và hứng kết quả boolean
-        boolean isSuccess = repository.add(newRecord);
-        if (isSuccess) {
-            System.out.println("Thêm mới bệnh án thành công!");
-        } else {
-            System.out.println("Thêm mới thất bại do lỗi hệ thống.");
+            System.out.println("Lỗi: Mã bệnh án này đã tồn tại trên hệ thống! Vui lòng nhập mã khác.");
         }
     }
 
     public void removeRecord() {
-        String code = InputValidator.getString("Nhập mã bệnh án cần xóa: ");
-
-        // Kiểm tra xem mã có tồn tại không trước khi hỏi xác nhận xóa
-        if (!repository.isRecordCodeExists(code)) {
-            System.out.println("Lỗi: Mã bệnh án [" + code + "] không tồn tại trong hệ thống.");
-            return;
-        }
-
-        String confirm = InputValidator.getString("Xác nhận xóa bệnh án " + code + "? (Yes/No): ");
-        if (confirm.equalsIgnoreCase("Yes")) {
-            // Gọi Repository xử lý xóa và hứng kết quả boolean
-            boolean isDeleted = repository.delete(code);
-            if (isDeleted) {
-                System.out.println("Xóa thành công.");
-                displayAll();
-            } else {
-                System.out.println("Xóa thất bại do lỗi hệ thống.");
-            }
+        String var1 = InputValidator.getString("Nhập mã bệnh án cần xóa: ");
+        var1 = var1.toUpperCase();
+        if (!this.repository.isRecordCodeExists(var1)) {
+            System.out.println("Lỗi: Mã bệnh án [" + var1 + "] không tồn tại trong hệ thống.");
         } else {
-            System.out.println("Hủy bỏ thao tác xóa.");
+            String var2 = InputValidator.getString("Xác nhận xóa bệnh án " + var1 + "? (Yes/No): ");
+            if (var2.equalsIgnoreCase("Yes")) {
+                boolean var3 = this.repository.delete(var1);
+                if (var3) {
+                    System.out.println("Xóa thành công.");
+                    this.displayAll();
+                } else {
+                    System.out.println("Xóa thất bại do lỗi hệ thống.");
+                }
+            } else {
+                System.out.println("Hủy bỏ thao tác xóa.");
+            }
+
         }
     }
 }
